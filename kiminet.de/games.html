@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .vertical-menu {
+            width: 220px;
+            position: fixed;
+            left: 10px;
+            top: 10px;
+            background: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .vertical-menu a {
+            background-color: #444;
+            color: white;
+            display: block;
+            padding: 14px;
+            text-decoration: none;
+            transition: background 0.3s ease-in-out;
+        }
+        .vertical-menu a:hover {
+            background-color: #575757;
+        }
+        .vertical-menu a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: -100px;
+            width: 100%;
+            background-color: red;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            transition: bottom 0.3s;
+        }
+        .footer.open {
+            bottom: 0;
+        }
+        .toggle-button {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background: #444;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .toggle-button:hover {
+            background: #575757;
+        }
+        .old-games-button {
+            position: fixed;
+            bottom: 50px;
+            right: 10px;
+            background: #008CBA;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .old-games-button:hover {
+            background: #005f7f;
+        }
+    </style>
+</head>
+<body>
+    <div class="vertical-menu">
+        <a href="/kiminet.de/games.html" class="active">Home</a>
+        <a href="/kiminet.de/browserfps.html">browserfps</a>
+        <a href="/kiminet.de/scratch-games.html">scratch-games</a>
+        <a href="/kiminet.de/flappy-bird.html">flappy-bird</a>
+        <a href="/kiminet.de/thisissand.html">this is sand</a>
+        <a href="/kiminet.de/manygames.html">too many (flash) games (beta)</a>
+        <a href="/kiminet.de/physics.html">physics?????</a>
+        <a href="/kiminet.de/stack.html">stack (beta) not working on some devices</a>
+        <a href="/kiminet.de/cube.html">Cube (beta) not working on some devices</a>
+        <a href="/kiminet.de/ai.html">Pollinations.ai Image and Text (beta) in maintenance</a>
+        <a href="/kiminet.de/textfeed.html">Text Feed by Pollinations.ai (beta)</a>
+        <a href="/kiminet.de/feed.html">Image Feed by Pollinations.ai</a>
+    </div>
+    
+    <button class="toggle-button" onclick="toggleFooter()">Open Footer ▲</button>
+    <a href="/kiminet.de/oldgames.html" class="old-games-button">Old Games</a>
+    
+    <div class="footer" id="footer">
+        <p>I am not responsible for any frustration or issues caused by teachers or any other individuals. Additionally, I cannot be held accountable if you are hacked through the use of third-party games or services. Use these resources at your own risk.</p>
+    </div>
+    
+    <script>
+        function toggleFooter() {
+            const footer = document.getElementById('footer');
+            footer.classList.toggle('open');
+        }
+        document.addEventListener("click", function() {
+            if (window.myWindow) {
+                window.myWindow.close();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>browser</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/kiminet.de/main.css">
+<style>
+.container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 66.66%; /* 4:3 Aspect Ratio */
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+</style>
+</head>
+<body>
+<div class="popup" ondblclick="back2()" onclick="back1()">back
+  <span class="popuptext" id="Popup">double click to go back!</span>
+</div>
+<div class="container"> 
+  <iframe class="responsive-iframe" src="https://thisissand.com/"></iframe>
+</div>
+<script>
+// When the user clicks on div, open the popup
+function back1() {
+  var popup = document.getElementById("Popup");
+  popup.classList.toggle("show");
+}
+
+function back2() {
+  window.open("/kiminet.de/games.html","_self")
+  }
+</script>
+
+</body>
+</html>

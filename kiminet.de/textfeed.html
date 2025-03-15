@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollinations AI Text Feed</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #pollinations-text {
+            font-size: 24px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="pollinations-text">Lade Text...</div>
+
+    <script>
+        async function fetchLatestText() {
+            try {
+                const response = await fetch("https://text.pollinations.ai/feed");
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+
+                while (true) {
+                    const { value, done } = await reader.read();
+                    if (done) break;
+
+                    const text = decoder.decode(value);
+                    const matches = text.match(/data: (\{.*?\})/g);
+                    
+                    if (matches) {
+                        for (const match of matches.reverse()) { // Neuesten Text zuerst nehmen
+                            const jsonData = JSON.parse(match.replace("data: ", ""));
+                            if (jsonData.text) {
+                                document.getElementById("pollinations-text").innerText = jsonData.text;
+                                return;
+                            }
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error("Fehler beim Abrufen des Textes:", error);
+            }
+        }
+
+        // Starte die Aktualisierung alle 3 Sekunden
+        fetchLatestText(); // Erstes Laden
+        setInterval(fetchLatestText, 3000);
+    </script>
+
+</body>
+</html>

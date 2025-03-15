@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html id="html1">
+<head>
+<meta charset="ISO-8859-1">
+<title>kiminet.de</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+.join-play-btn {
+    background-color: #1abc9c; /* Hauptfarbe */
+    color: white; /* Textfarbe */
+    border: none;
+    border-radius: 8px; /* Runde Kanten */
+    padding: 12px 24px; /* Innenabstand */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.join-play-btn:hover {
+    background-color: #16a085; /* Etwas dunkler beim Hover */
+}
+
+.join-play-btn:active {
+    transform: scale(0.95); /* Kleiner "Drücken"-Effekt */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduzierter Schatten */
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.image-container img {
+    width: 80%;
+    left:50%;
+    max-width: 600px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+.play {
+text-align: center;
+}
+.w3-display-middle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%)}
+.w3-display-2{position:absolute;top:98%;left:3%;transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%)}
+.reload {
+  font-family: Lucida Sans Unicode
+}
+</style>
+</head>
+<body id="body1">
+<div class="container">
+        <h1 id="titel1">Willkommen bei kiminet.de</h1>
+        <div class="image-container">
+            <img src="https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=en-US" alt="grafik">
+        </div>
+        
+    </div>
+
+
+<div class="product-options">
+  <a id="myWish" href="javascript:;" class="btn btn-mini w3-display-middle">something :)</a>
+  <a href="" class="btn btn-mini w3-display-2"><span class=reload>&#x21bb;</span></a>
+</div>
+<div class="alert alert-success" id="success-alert">
+  <button type="button" class="close" data-dismiss="alert">x</button>
+  <button class="btn btn-mini play" onclick="setTimeout(openWin, 1500);" id="playButton">Spiel starten</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+
+document.addEventListener("mousemove", myFunction);
+
+function myFunction() {
+myWindow.close();
+myWindow.opener.document.getElementById("playButton").innerHTML = "Hallo!";
+document.getElementById("myWish").innerHTML = "";
+document.getElementById("body1").innerHTML = "<h1> 403 Access to this page is restricted</h1>";
+$("#success-alert").hide();
+$("#myWish").click(function showAlert() {
+  $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+    $("#success-alert").slideUp(500);
+  });
+});
+};
+
+
+
+
+let myWindow;
+
+function openWin() {
+
+myWindow =   window.open("../kiminet.de/games.html", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=300,width=1600,height=800");
+}
+
+function closeWin() {
+  myWindow.close();
+}
+
+document.getElementById("playButton").addEventListener("click", function() {
+    //alert("klicke auf ok um das fenster zu schließen!");
+});
+
+$(document).ready(function() {
+	  $("#success-alert").hide();
+	  $("#myWish").click(function showAlert() {
+	    $("#success-alert").fadeTo(4000, 500).slideUp(500, function() {
+	      $("#success-alert").slideUp(500);
+	    });
+	  });
+	});
+$("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
+    $("#success-alert").slideUp(500);
+});
+
+</script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</body>
+</html>

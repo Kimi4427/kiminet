@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollinations AI Bild</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+        #pollinations-image {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="pollinations-image" src="" alt="Loading...">
+
+    <script>
+        function startImageFeed() {
+            const eventSource = new EventSource("https://image.pollinations.ai/feed");
+            const imgElement = document.getElementById("pollinations-image");
+
+            eventSource.onmessage = function(event) {
+                try {
+                    const jsonData = JSON.parse(event.data);
+                    if (jsonData.imageURL) {
+                        imgElement.src = jsonData.imageURL;
+                    }
+                } catch (error) {
+                    console.error("Fehler beim Verarbeiten des Bildes:", error);
+                }
+            };
+
+            eventSource.onerror = function(error) {
+                console.error("Fehler beim Verbinden zum Feed:", error);
+                eventSource.close();
+            };
+        }
+
+        startImageFeed();
+    </script>
+
+</body>
+</html>
