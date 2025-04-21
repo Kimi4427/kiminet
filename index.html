@@ -1,11 +1,37 @@
-<h1>204 No Content</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kiminet</title>
+<link rel="stylesheet" href="./src/main/webapp/style.css">
+</head>
+<body onload="onload()">
+<div id="video-background">
+    <div id="video-foreground">
+      <iframe id="ytbackgrplayer" src="" frameborder="0" autoplay allowfullscreen></iframe>
+    </div>
+  </div>
+<div id="music-background">
+  <iframe 
+    id="video"
+    src="https://www.youtube-nocookie.com/embed/MU3EOO4fWQo?list=OLAK5uy_mDWtgeNF9LzujhjNi5DFcX-Lld0_ZMr_s"
+    allow="autoplay"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+</div>
 
-<a>kiminet.de is currently not available... <br>
-please check again later
-  </a>
-
-
-  <br>
-  <br>
-  <br>
-  <a>Copyright kimi 2024-2025</a>
+<div id="infobox">
+  <div id="infoboxcontent">
+    <p>Welcome! Click OK to continue.</p>
+    <button id="infoboxbutton" onclick="closeInfoBox()">OK</button>
+  </div>
+</div>
+<div id="vidtop-content">
+<div id="vid-info">
+	  <h2>Welcome to Kiminet</h2>
+  </div>
+</div>
+<script src="./src/main/webapp/main.js"></script>
+</body>
+</html>
