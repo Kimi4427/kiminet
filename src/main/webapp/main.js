@@ -36,7 +36,7 @@ function volumetoggle() {
 
   if (isMuted) {
     volumeIcon.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
-	document.getElementById('music-background').innerHTML = '<iframe id="bgmusic" src="https://www.youtube-nocookie.com/embed/MU3EOO4fWQo?enablejsapi=1&list=OLAK5uy_mDWtgeNF9LzujhjNi5DFcX-Lld0_ZMr_s" allow="autoplay" frameborder="0" allowfullscreen></iframe>';
+	document.getElementById('music-background').innerHTML = '<iframe id="bgmusic" src="https://www.youtube-nocookie.com/embed/cpZkokW8zLY?enablejsapi=1" allow="autoplay" frameborder="0" allowfullscreen></iframe>';
 	const bgmusic = document.getElementById('bgmusic');
 	if (bgmusic) {
 	    const src = bgmusic.src;
