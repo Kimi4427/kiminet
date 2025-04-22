@@ -1,30 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta name="google-signin-client_id" content="300894888050-sc6sa7dhh6alofqrcs2f24nokrulpfp9.apps.googleusercontent.com">
+  <meta charset="UTF-8" />
+  <title>Google Sign-In Demo</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    function handleCredentialResponse(response) {
+      // This is where the JWT token is handled
+      const token = response.credential;
+      console.log("Google ID Token:", token);
+
+      // Show it on the page or send to your server
+      document.getElementById("output").textContent = token;
+    }
+
+    window.onload = function () {
+      google.accounts.id.initialize({
+        client_id: "300894888050-sc6sa7dhh6alofqrcs2f24nokrulpfp9.apps.googleusercontent.com",
+        callback: handleCredentialResponse
+      });
+
+      google.accounts.id.renderButton(
+        document.getElementById("g_id_signin"),
+        { theme: "outline", size: "large" }  // Customize button
+      );
+
+      google.accounts.id.prompt(); // Optional: One Tap prompt
+    };
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background: #f4f4f4;
+    }
+    #output {
+      margin-top: 2rem;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 5px;
+      word-break: break-all;
+    }
+  </style>
 </head>
 <body>
-  <div id="my-signin2"></div>
-  <script>
-    function onSuccess(googleUser) {
-      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-    }
-    function onFailure(error) {
-      console.log(error);
-    }
-    function renderButton() {
-      gapi.signin2.render('my-signin2', {
-        'scope': 'profile email',
-        'width': 240,
-        'height': 50,
-        'longtitle': true,
-        'theme': 'dark',
-        'onsuccess': onSuccess,
-        'onfailure': onFailure
-      });
-    }
-  </script>
-
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+  <h1>Login with Google</h1>
+  <div id="g_id_signin"></div>
+  <div id="output">JWT Token will appear here after sign-in.</div>
 </body>
 </html>
