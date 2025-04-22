@@ -1,10 +1,28 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+
+.roboto-roboto {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
  body, html {
       margin: 0;
       padding: 0;
       height: 100%;
+      scroll-behavior: smooth;
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
  }
+ ::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+}
  
 * { box-sizing: border-box; }
 #video-background {
@@ -25,6 +43,7 @@
 #vidtop-content {
 	top: 0;
 	color: #fff;
+		position: sticky;
 }
 #bgmusic {
 	display: none;
@@ -106,4 +125,104 @@ font-weight: bold;
 
 #infoboxbutton:hover {
       background-color: #45a049;
+}
+
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+#glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+#glow-on-hover:active {
+    color: #000
+}
+
+#glow-on-hover:active:after {
+    background: transparent;
+}
+
+#glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+#glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+#section2 {
+  font-family: "Roboto", sans-serif;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: invert(80%) blur(2px);
+  margin: 0;
+  position: absolute;
+  top: 200%;
+  left: 50%;
+  -ms-transform: translate(-100%, -100%);
+  transform: translate(-50%, -50%);
+	
+}
+
+.sticky {
+	position: sticky;
+	top: 0;
+}
+
+iframe {
+	border: none;
+	overflow: hidden;
+	width: 100%;
+  height: 100%;
+  border: none;
+  overflow: hidden;
+  display: block;
+	
 }
